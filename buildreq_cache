@@ -1,7 +1,5 @@
-0.9.7
+0.9.8.1
 kactivities-dev
 kglobalaccel-dev
 kwayland-dev
-libksysguard-dev
 plasma-framework-dev
-util-linux
