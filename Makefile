@@ -1,5 +1,5 @@
 PKG_NAME := latte-dock
-URL = https://github.com/KDE/latte-dock/archive/v0.9.11/latte-dock-0.9.11.tar.gz
+URL = https://download.kde.org/stable/latte-dock/latte-dock-0.9.11.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
