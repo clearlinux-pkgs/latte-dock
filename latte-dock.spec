@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x55999050A2D9110E (mvourlakos@gmail.com)
 #
 Name     : latte-dock
-Version  : 0.10.1
-Release  : 19
-URL      : https://download.kde.org/stable/latte-dock/latte-dock-0.10.1.tar.xz
-Source0  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.1.tar.xz
-Source1  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.1.tar.xz.sig
+Version  : 0.10.2
+Release  : 20
+URL      : https://download.kde.org/stable/latte-dock/latte-dock-0.10.2.tar.xz
+Source0  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.2.tar.xz
+Source1  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.0 LGPL-3.0
+License  : GPL-2.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
 Requires: latte-dock-bin = %{version}-%{release}
 Requires: latte-dock-data = %{version}-%{release}
 Requires: latte-dock-lib = %{version}-%{release}
@@ -80,15 +80,15 @@ locales components for the latte-dock package.
 
 
 %prep
-%setup -q -n latte-dock-0.10.1
-cd %{_builddir}/latte-dock-0.10.1
+%setup -q -n latte-dock-0.10.2
+cd %{_builddir}/latte-dock-0.10.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630964718
+export SOURCE_DATE_EPOCH=1634331081
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -104,14 +104,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1630964718
+export SOURCE_DATE_EPOCH=1634331081
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/latte-dock
-cp %{_builddir}/latte-dock-0.10.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/latte-dock-0.10.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/latte-dock-0.10.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/latte-dock-0.10.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/latte-dock-0.10.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/latte-dock-0.10.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/latte-dock-0.10.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/latte-dock-0.10.2/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/fa05e58320cb7c64786b26396f4b992579a628bc
+cp %{_builddir}/latte-dock-0.10.2/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/49e61f7864169f2e356c11a17422d7d20d74b40f
+cp %{_builddir}/latte-dock-0.10.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/latte-dock-0.10.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -456,6 +457,7 @@ popd
 /usr/share/package-licenses/latte-dock/49e61f7864169f2e356c11a17422d7d20d74b40f
 /usr/share/package-licenses/latte-dock/a4c60b3fefda228cd7439d3565df043192fef137
 /usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
+/usr/share/package-licenses/latte-dock/fa05e58320cb7c64786b26396f4b992579a628bc
 
 %files locales -f latte-dock.lang -f plasma_applet_org.kde.latte.containment.lang -f plasma_applet_org.kde.latte.plasmoid.lang -f plasma_containmentactions_lattecontextmenu.lang -f latte_indicator_org.kde.latte.default.lang -f latte_indicator_org.kde.latte.plasma.lang
 %defattr(-,root,root,-)
