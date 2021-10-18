@@ -6,7 +6,7 @@
 #
 Name     : latte-dock
 Version  : 0.10.2
-Release  : 20
+Release  : 21
 URL      : https://download.kde.org/stable/latte-dock/latte-dock-0.10.2.tar.xz
 Source0  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.2.tar.xz
 Source1  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.2.tar.xz.sig
