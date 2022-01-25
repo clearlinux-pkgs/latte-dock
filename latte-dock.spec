@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x55999050A2D9110E (mvourlakos@gmail.com)
 #
 Name     : latte-dock
-Version  : 0.10.7
-Release  : 26
-URL      : https://download.kde.org/stable/latte-dock/latte-dock-0.10.7.tar.xz
-Source0  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.7.tar.xz
-Source1  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.7.tar.xz.sig
+Version  : 0.10.8
+Release  : 27
+URL      : https://download.kde.org/stable/latte-dock/latte-dock-0.10.8.tar.xz
+Source0  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.8.tar.xz
+Source1  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.8.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -79,15 +79,15 @@ locales components for the latte-dock package.
 
 
 %prep
-%setup -q -n latte-dock-0.10.7
-cd %{_builddir}/latte-dock-0.10.7
+%setup -q -n latte-dock-0.10.8
+cd %{_builddir}/latte-dock-0.10.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641931426
+export SOURCE_DATE_EPOCH=1643128389
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -103,15 +103,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1641931426
+export SOURCE_DATE_EPOCH=1643128389
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/latte-dock
-cp %{_builddir}/latte-dock-0.10.7/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/latte-dock-0.10.7/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/latte-dock-0.10.7/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/fa05e58320cb7c64786b26396f4b992579a628bc
-cp %{_builddir}/latte-dock-0.10.7/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/latte-dock-0.10.7/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/latte-dock-0.10.7/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/latte-dock-0.10.8/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/latte-dock-0.10.8/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/latte-dock-0.10.8/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/fa05e58320cb7c64786b26396f4b992579a628bc
+cp %{_builddir}/latte-dock-0.10.8/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/49e61f7864169f2e356c11a17422d7d20d74b40f
+cp %{_builddir}/latte-dock-0.10.8/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/latte-dock-0.10.8/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
