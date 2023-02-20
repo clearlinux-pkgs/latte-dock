@@ -6,7 +6,7 @@
 #
 Name     : latte-dock
 Version  : 0.10.9
-Release  : 28
+Release  : 29
 URL      : https://download.kde.org/stable/latte-dock/latte-dock-0.10.9.tar.xz
 Source0  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.9.tar.xz
 Source1  : https://download.kde.org/stable/latte-dock/latte-dock-0.10.9.tar.xz.sig
@@ -28,6 +28,9 @@ BuildRequires : kirigami2-dev
 BuildRequires : kwayland-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : qtbase-dev mesa-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 About
@@ -87,31 +90,31 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1670026397
+export SOURCE_DATE_EPOCH=1676861473
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1670026397
+export SOURCE_DATE_EPOCH=1676861473
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/latte-dock
-cp %{_builddir}/latte-dock-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/latte-dock-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/latte-dock-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/fa05e58320cb7c64786b26396f4b992579a628bc
-cp %{_builddir}/latte-dock-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/latte-dock-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/latte-dock-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/latte-dock-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
+cp %{_builddir}/latte-dock-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/latte-dock/a4c60b3fefda228cd7439d3565df043192fef137 || :
+cp %{_builddir}/latte-dock-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/fa05e58320cb7c64786b26396f4b992579a628bc || :
+cp %{_builddir}/latte-dock-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/latte-dock/49e61f7864169f2e356c11a17422d7d20d74b40f || :
+cp %{_builddir}/latte-dock-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32 || :
+cp %{_builddir}/latte-dock-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/latte-dock/e458941548e0864907e654fa2e192844ae90fc32 || :
 pushd clr-build
 %make_install
 popd
